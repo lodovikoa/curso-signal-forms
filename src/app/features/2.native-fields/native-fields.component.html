@@ -1,4 +1,18 @@
 <fieldset class="fieldset">
+  <legend id="nickname-field" class="fieldset-legend">Apelido</legend>
+  <input aria-labelledby="nickname-field" type="text" class="input" [formField]="$any(form.nickname)" />
+
+  {{ form.nickname().value() }}
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend id="age-field" class="fieldset-legend">Idade</legend>
+  <input aria-labelledby="age-field" type="number" class="input" [formField]="form.age" />
+
+  {{ form.age().value() }}
+</fieldset>
+
+<fieldset class="fieldset">
   <legend id="date-field" class="fieldset-legend">Data</legend>
   <input aria-labelledby="date-field" type="date" class="input" [formField]="form.date" />
 

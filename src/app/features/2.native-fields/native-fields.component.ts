@@ -41,8 +41,10 @@ function createFrequencyOptions() {
 }
 
 interface FormModel {
+  nickname: string | null;
+  age:number | string | null;
   date: Date | string;
-  time: Date,
+  time: Date | string;
   datetime: number | string;
   theme: Themes;
   receiveNews: boolean;
@@ -62,6 +64,8 @@ export class NativeFields {
   protected frequencyOptions = signal(createFrequencyOptions());
 
   protected formModel = signal<FormModel>({
+    nickname: null,
+    age: 18,
     date: new Date().toISOString().split('T')[0],
     time: '04:50' as unknown as Date,
     datetime: Date.now(),
