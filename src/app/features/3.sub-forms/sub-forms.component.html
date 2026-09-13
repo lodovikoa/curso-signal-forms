@@ -1,0 +1,29 @@
+<fieldset class="fieldset">
+  <legend id="name-legend" class="fieldset-legend">Nome</legend>
+  <input aria-labelledby="name-legend" type="text" class="input"n [formField]="form1.personalData.name">
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend id="email-legend" class="fieldset-legend">Email</legend>
+  <input aria-labelledby="email-legend" type="email" class="input"n [formField]="form1.personalData.email">
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend id="zipcode-legend" class="fieldset-legend">CEP</legend>
+  <input aria-labelledby="zipcode-legend" type="number" class="input"n [formField]="form1.address.zipcode">
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend id="street-legend" class="fieldset-legend">Rua</legend>
+  <input aria-labelledby="street-legend" type="text" class="input"n [formField]="form1.address.street">
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend id="number-legend" class="fieldset-legend">Numero</legend>
+  <input aria-labelledby="number-legend" type="number" class="input"n [formField]="form1.address.number">
+</fieldset>
+
+
+<pre>
+  {{ form1().value() | json }}
+</pre>
