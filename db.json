@@ -1,0 +1,14 @@
+{
+  "profile": {
+    "personal": {
+      "name": "Pessoa Fulano4",
+      "email": "fulano4@example.com"
+    },
+    "address": {
+      "zipcode": "29144040",
+      "street": "São Benedito",
+      "number": ""
+    }
+  },
+  "$schema": "./node_modules/json-server/schema.json"
+}

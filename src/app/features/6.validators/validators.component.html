@@ -1,0 +1,31 @@
+<fieldset class="fieldset">
+  <legend id="usernameLegend" class="fieldset-legend">Username</legend>
+  <input aria-labelledby="usernameLegend" type="text" class="input" placeholder="Username do funcionário" [formField]="form1.username" />
+
+  @for (error of form1.username().errors(); track error) {
+    <div class="text-error">⚠️ {{ error.message }}</div>
+  }
+
+  <div> touched: {{ form1.username().touched() }} </div>
+  <div> dirty: {{ form1.username().dirty() }} </div>
+  <div> valid: {{ form1.username().valid() }} </div>
+  <div> invalid: {{ form1.username().invalid() }} </div>
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend id="ageLegend" class="fieldset-legend">Idade</legend>
+  <input aria-labelledby="ageLegend" type="number" class="input" placeholder="Idade do funcionário" [formField]="form1.age" />
+
+  @for (error of form1.age().errors(); track error) {
+    <div class="text-error">⚠️ {{ error.message }}</div>
+  }
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend id="emailLegend" class="fieldset-legend">Email</legend>
+  <input aria-labelledby="emailLegend" type="email" class="input" placeholder="Email do funcionário" [formField]="form1.email"/>
+
+  @for (error of form1.email().errors(); track error) {
+    <div class="text-error">⚠️ {{ error.message }}</div>
+  }
+</fieldset>

@@ -1,0 +1,27 @@
+<fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+  <legend class="fieldset-legend">Page details</legend>
+
+  @for (item of form1.emails; track item) {
+    <label for="email-label" class="label">Email</label>
+    <div class="join">
+      <input id="email-label" type="email" class="input join-item" placeholder="Digite um Email" [formField]="item" />
+      <button class="btn btn-error join-item" (click)="remove($index)" [disabled]="hasLessThanTwoEmails()">X</button>
+    </div>
+
+    @if (item().touched()) {
+      @for (error of item().errors(); track error) {
+        <div class="text-error">{{ error.message }}</div>
+      }
+    }
+  }
+
+  <button type="button" class="btn btn-primary mt-4" (click)="add()">Adicionar</button>
+</fieldset>
+
+<div>
+  Item Valid: {{ form1.emails().valid() | json}}
+</div>
+<div>
+  Form Valid: {{ form1().valid() | json}}
+</div>
+{{ form1.emails().value() | json }}
