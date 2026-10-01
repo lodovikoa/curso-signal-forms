@@ -1,0 +1,32 @@
+<fieldset class="fieldset">
+  <legend id="username-legend" class="fieldset-label">Username</legend>
+  <input aria-labelledby="username-legend" class="input" type="text" [formField]="form1.username" />
+
+  <p class="text-info"> {{ form1.username().metadata(USERNAME_GENERATOR)!() }} </p>
+  <p class="text-info"> {{ form1.username().metadata(USERNAME_HELP)!() }} </p>
+
+  @if(form1.username().touched()) {
+  @for (error of form1.username().errors(); track error) {
+  <p class="text-error"> {{ error.message }} </p>
+  }
+  }
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend id="password-legend" class="fieldset-label">Senha</legend>
+  <input aria-labelledby="password-legend" class="input" type="text" [formField]="form1.password" />
+
+  <p [class]="passwordScoreClass()"> {{ passwordScore() }} </p>
+
+  <p> {{ form1.password().metadata(PASSWORD_SCORE)!() }} </p>
+
+  @for (item of form1.password().metadata(HELP_LIST)!(); track item) {
+  <p class="text-info"> {{ item }} </p>
+  }
+
+  <!-- @if(form1.password().touched()) {
+    @for (error of form1.password().errors(); track error) {
+      <p class="text-error"> {{ error.message }} </p>
+    }
+  } -->
+</fieldset>

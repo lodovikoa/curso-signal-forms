@@ -16,12 +16,14 @@ interface Employee {
 })
 export class Validators {
 
+  // Modelo de dados do formulário - Boas práticas: Usar interfaces para definir o modelo de dados do formulário, garantindo tipagem e consistência.
   employeeModel = signal<Employee>({
     username: '',
     age: 0,
     email: ''
   });
 
+  // Declaração do form e validações
   form1 = form(this.employeeModel, schema => {
     required(schema.username, { message:'Username é obrigatório' });
     minLength(schema.username, 5, { message:'Username deve ter no mínimo 5 caracteres' });

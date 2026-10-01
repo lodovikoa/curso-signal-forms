@@ -5,6 +5,8 @@ import { SubForms } from './features/3.sub-forms/sub-forms.component';
 import { TranslateModel } from './features/4.translate-model/translate-model.component';
 import { ArrayField } from './features/5.array-field/array-field.component';
 import { Validators } from './features/6.validators/validators.component';
+import { StateClasses } from './features/7.state-classes/state-classes.component';
+import { Metadata } from './features/8.metadata/metadata.component';
 
 export const routes: Routes = [
   { path: '1-simple-form', component:SimplesForm },
@@ -12,5 +14,7 @@ export const routes: Routes = [
   { path: '3-sub-forms', component:SubForms },
   { path: '4-translate-model', component:TranslateModel },
   { path: '5-array-fields', component:ArrayField },
-  { path: '6-validators', component:Validators }
+  { path: '6-validators', component:Validators },
+  { path: '7-state-classes', component:StateClasses },
+  { path: '8-metadata', component:Metadata }
 ];
