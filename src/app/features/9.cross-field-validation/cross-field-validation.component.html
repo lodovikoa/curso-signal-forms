@@ -1,0 +1,49 @@
+<fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+  <legend class="fieldset-legend">Sorteio</legend>
+
+  <label for="nmNome1" class="label">Nome1</label>
+  <input id="nmNome1" type="text" class="input" [formField]="form1.names.name1" />
+
+  @for (error of form1.names.name1().errors(); track error) {
+    <p class="text-error">{{ error.message }}</p>
+  }
+
+  <label for="nmNome2" class="label">Nome2</label>
+  <input id="nmNome2" type="text" class="input" [formField]="form1.names.name2" />
+
+    @for (error of form1.names.name2().errors(); track error) {
+    <p class="text-error">{{ error.message }}</p>
+    }
+
+  <label for="nmNome3" class="label">Nome3</label>
+  <input id="nmNome3" type="text" class="input" [formField]="form1.names.name3" />
+
+  @for (error of form1.names.name3().errors(); track error) {
+    <p class="text-error">{{ error.message }}</p>
+  }
+
+  <label for="nmNome4" class="label">Nome4</label>
+  <input id="nmNome4" type="text" class="input" [formField]="form1.names.name4" />
+
+  @for (error of form1.names.name4().errors(); track error) {
+    <p class="text-error">{{ error.message }}</p>
+  }
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend id="password-legend" class="fieldset-legend">Senha</legend>
+  <input aria-labelledby="password-legend" type="password" class="input" [formField]="form1.password" placeholder="Senha">
+
+   @for (error of form1.password().errors(); track error) {
+    <p class="text-error">{{ error.message }}</p>
+  }
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend id="confirm-password-legend" class="fieldset-legend">Confirmar Senha</legend>
+  <input aria-labelledby="confirm-password-legend" type="password" class="input" [formField]="form1.confirmPassword" placeholder="Confirmar Senha">
+
+  @for (error of form1.confirmPassword().errors(); track error) {
+    <p class="text-error">{{ error.message }}</p>
+  }
+</fieldset>

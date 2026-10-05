@@ -1,0 +1,62 @@
+<fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+  <legend class="fieldset-legend">ICMS</legend>
+
+  <label class="label">
+    <input type="checkbox"  class="checkbox" [formField]="form1.isTaxPayer" />
+    É contribuinte ICMS
+  </label>
+
+  <label class="label">
+    <input type="checkbox"  class="checkbox" [formField]="form1.sellsProduct" />
+    Vende produtos?
+  </label>
+
+  <label for="stateRegistration" class="label">Registro estadual</label>
+  <input id="stateRegistration" type="text" class="input" placeholder="Digite seu registro estadual" [formField]="form1.stateRegistration" />
+
+  @for (erros of form1.stateRegistration().errors(); track erros) {
+    <p class="text-error">{{ erros.message }}</p>
+  }
+
+  <label for="taxRegime" class="label">Regime tributário</label>
+  <input id="taxRegime" type="text" class="input" placeholder="Digite seu regime tributário" [formField]="form1.taxRegime" />
+
+  @for (erros of form1.taxRegime().errors(); track erros) {
+    <p class="text-error">{{ erros.message }}</p>
+  }
+
+  <label for="addressState" class="label">Estado</label>
+  <input id="addressState" type="text" class="input" placeholder="Digite o estado" [formField]="form1.addressState" />
+
+  @for (erros of form1.addressState().errors(); track erros) {
+    <p class="text-error">{{ erros.message }}</p>
+  }
+
+</fieldset>
+
+<fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+  <legend class="fieldset-legend">Pagamento</legend>
+
+  <label for="fpgto" class="label">Forma de pagamento</label>
+  <select id="fpgto" class="select" [formField]="form1.payment.method">
+    <option disabled selected>Escolha uma opção</option>
+    <option value="pix">Pix</option>
+    <option value="bank">Transferência bancária</option>
+  </select>
+
+  @if(!form1.payment.pix().hidden()) {
+    <label for="pixKey" class="label">Pix</label>
+    <input id="pixKey" type="text" class="input" placeholder="Chave Pix" [formField]="form1.payment.pix.key" />
+  }
+
+  @if(!form1.payment.bank().hidden()) {
+    <label for="bankCode" class="label">Transferência bancária</label>
+    <input id="bankCode" type="text" class="input" placeholder="Código" [formField]="form1.payment.bank.code" />
+
+    <label for="bankAgency" class="label">Agência</label>
+    <input id="bankAgency" type="text" class="input" placeholder="Agência" [formField]="form1.payment.bank.agency" />
+
+    <label for="bankAccount" class="label">Conta</label>
+    <input id="bankAccount" type="text" class="input" placeholder="Conta" [formField]="form1.payment.bank.account" />
+  }
+</fieldset>

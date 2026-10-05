@@ -2,13 +2,18 @@
   <legend id="username-legend" class="fieldset-label">Username</legend>
   <input aria-labelledby="username-legend" class="input" type="text" [formField]="form1.username" />
 
-  <p class="text-info"> {{ form1.username().metadata(USERNAME_GENERATOR)!() }} </p>
+  {{ form1.username().hasMetadata(USERNAME_GENERATOR) }}
+
+  @if(form1.username().hasMetadata(USERNAME_GENERATOR)) {
+    <p class="text-info"> {{ form1.username().metadata(USERNAME_GENERATOR)!() }} </p>
+  }
+
   <p class="text-info"> {{ form1.username().metadata(USERNAME_HELP)!() }} </p>
 
   @if(form1.username().touched()) {
-  @for (error of form1.username().errors(); track error) {
-  <p class="text-error"> {{ error.message }} </p>
-  }
+    @for (error of form1.username().errors(); track error) {
+      <p class="text-error"> {{ error.message }} </p>
+    }
   }
 </fieldset>
 

@@ -1,0 +1,17 @@
+<fieldset class="fieldset">
+  <legend id="name-legend" class="fieldset-legend">Nome</legend>
+  <input type="text" class="input" [formField]="form1.name" aria-labelledby="name-legend" />
+
+  @for (error of form1.name().errors(); track error) {
+    <span class="text-error">{{ error.message }}</span>
+  }
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend id="price-legend" class="fieldset-legend">Preço</legend>
+  <input type="number" class="input" [formField]="form1.price" aria-labelledby="price-legend" />
+
+  @for (error of form1.price().errors(); track error) {
+    <span class="text-error">{{ error.message }}</span>
+  }
+</fieldset>
