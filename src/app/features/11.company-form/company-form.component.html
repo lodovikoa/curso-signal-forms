@@ -1,4 +1,23 @@
 <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+  <legend class="fieldset-legend">Dados da Empresa</legend>
+
+    <label class="label">
+      <input type="checkbox"  class="checkbox" [(ngModel)]="isApproved" />
+      Empresa aprovada
+    </label>
+
+    <label for="cnpj" class="label">CNPJ</label>
+    <input id="cnpj" type="text" class="input" placeholder="CNPJ" [formField]="form1.company.cnpj" />
+    Dirty: {{ form1.company.cnpj().dirty() }} - Touched: {{ form1.company.cnpj().touched() }}
+
+
+    <label for="legalName" class="label">Razão social</label>
+    <input id="legalName" type="text" class="input" placeholder="Razão social" [formField]="form1.company.legalName" />
+    Dirty: {{ form1.company.legalName().dirty() }} - Touched: {{ form1.company.legalName().touched() }}
+
+</fieldset>
+
+<fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
   <legend class="fieldset-legend">ICMS</legend>
 
   <label class="label">
@@ -36,6 +55,10 @@
 
 <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
   <legend class="fieldset-legend">Pagamento</legend>
+
+  @for (reason of form1.payment().disabledReasons(); track reason) {
+    <p class="text-warning">{{ reason.message }}</p>
+  }
 
   <label for="fpgto" class="label">Forma de pagamento</label>
   <select id="fpgto" class="select" [formField]="form1.payment.method">

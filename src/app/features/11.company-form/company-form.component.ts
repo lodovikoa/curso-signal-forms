@@ -1,7 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { form, required, FormField, applyWhen, applyWhenValue, hidden } from '@angular/forms/signals';
+import { FormsModule } from '@angular/forms';
+import { form, required, FormField, applyWhen, applyWhenValue, hidden, readonly, disabled } from '@angular/forms/signals';
 
 interface CompanyRegistration {
+  company: {
+    cnpj: string;
+    legalName: string;
+  }
   isTaxPayer: boolean;
   stateRegistration: string;
   sellsProduct: boolean;
@@ -21,14 +26,20 @@ interface CompanyRegistration {
 };
 
 @Component({
-  imports: [FormField],
+  imports: [FormField, FormsModule],
   selector: 'app-company-form',
   styleUrl: './company-form.component.css',
   templateUrl: './company-form.component.html',
 })
 export class CompanyForm {
 
+  protected isApproved = signal(false);
+
   protected formModel = signal<CompanyRegistration>({
+    company: {
+      cnpj: '',
+      legalName: ''
+    },
     isTaxPayer: false,
     stateRegistration: '',
     sellsProduct: false,
@@ -65,6 +76,18 @@ export class CompanyForm {
 
     hidden(schema.payment.pix, {
       when: ({ valueOf }) => valueOf(schema.payment.method) !== 'pix',
+    })
+
+    readonly(schema.company.cnpj, {
+      when: () => this.isApproved(),
+    })
+
+    readonly(schema.company.legalName, {
+      when: () => this.isApproved(),
+    })
+
+    disabled(schema.payment, {
+      when: ({ valueOf }) => !valueOf(schema.company.cnpj)? 'Preencha o CNPJ da empresa': false,
     })
   });
 }

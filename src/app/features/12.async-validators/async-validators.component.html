@@ -1,0 +1,25 @@
+<fieldset class="fieldset">
+  <legend id="email-legend" class="fieldset-legend">Email</legend>
+  <input aria-labelledby="email-legend" class="input" type="email" [formField]="form1.email" placeholder="Email" />
+
+  @if(form1.email().pending()) {
+    <p class="text-info">Verificando...</p>
+  }
+
+  @for (error of form1.email().errors(); track error) {
+    <p class="text-error">{{ error.message }}</p>
+  }
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend id="username-legend" class="fieldset-legend">Username</legend>
+  <input aria-labelledby="username-legend" class="input" type="text" [formField]="form1.username" placeholder="Username" />
+
+  @if(form1.username().pending()) {
+    <p class="text-info">Verificando...</p>
+  }
+
+  @for (error of form1.username().errors(); track error) {
+    <p class="text-error">{{ error.message }}</p>
+  }
+</fieldset>

@@ -10,6 +10,8 @@ import { Metadata } from './features/8.metadata/metadata.component';
 import { CrossFieldValidation } from './features/9.cross-field-validation/cross-field-validation.component';
 import { Zoid } from './features/10.zoid/zoid.component';
 import { CompanyForm } from './features/11.company-form/company-form.component';
+import { AsyncValidators } from './features/12.async-validators/async-validators.component';
+import { SubmitForm } from './features/13.submit-form/submit-form.component';
 
 export const routes: Routes = [
   { path: '1-simple-form', component:SimplesForm },
@@ -22,5 +24,7 @@ export const routes: Routes = [
   { path: '8-metadata', component:Metadata },
   { path: '9-cross-field-validation', component:CrossFieldValidation },
   { path: '10-zoid', component:Zoid },
-  { path: '11-company-form', component:CompanyForm }
+  { path: '11-company-form', component:CompanyForm },
+  { path: '12-async-validators', component:AsyncValidators },
+  { path: '13-submit-form', component:SubmitForm }
 ];
