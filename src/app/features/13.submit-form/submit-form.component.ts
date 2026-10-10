@@ -1,12 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { form, FormField, required, submit, validateHttp } from '@angular/forms/signals';
+import { form, FormField, FormRoot, required, submit, validateHttp } from '@angular/forms/signals';
 
 interface FormModel {
   username: string;
 }
 
 @Component({
-  imports: [ FormField ],
+  imports: [ FormField, FormRoot ],
   selector: 'app-submit-form',
   styleUrl: './submit-form.component.css',
   templateUrl: './submit-form.component.html',
@@ -43,11 +43,9 @@ export class SubmitForm {
       },
       debounce: 500,
       when: ({ value }) => !!value(),
-    })
-  });
-
-  protected async save(){
-    const result = await submit(this.form1, {
+    });
+  }, {
+    submission: {
       action: async (form) => {
         this.errorMessage.set('');
         console.log("Submit: ", form().value());
@@ -70,9 +68,9 @@ export class SubmitForm {
         this.errorMessage.set('Formulário está com algum erro!')
       },
       ignoreValidators: 'none'
-    })
+    }
 
-    console.log('Resultado: ', result);
-  }
+
+  });
 
 }

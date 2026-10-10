@@ -12,6 +12,7 @@ import { Zoid } from './features/10.zoid/zoid.component';
 import { CompanyForm } from './features/11.company-form/company-form.component';
 import { AsyncValidators } from './features/12.async-validators/async-validators.component';
 import { SubmitForm } from './features/13.submit-form/submit-form.component';
+import { FieldFocus } from './features/14.field-focus/field-focus.component';
 
 export const routes: Routes = [
   { path: '1-simple-form', component:SimplesForm },
@@ -26,5 +27,6 @@ export const routes: Routes = [
   { path: '10-zoid', component:Zoid },
   { path: '11-company-form', component:CompanyForm },
   { path: '12-async-validators', component:AsyncValidators },
-  { path: '13-submit-form', component:SubmitForm }
+  { path: '13-submit-form', component:SubmitForm },
+  { path: '14-field-focus', component:FieldFocus }
 ];

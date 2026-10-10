@@ -1,0 +1,31 @@
+<form [formRoot]="form1">
+  <fieldset class="fieldset">
+    <legend id="dsName" class="fieldset-legend">Nome</legend>
+    <input aria-labelledby="dsName" type="text" class="input" placeholder="Nome" [formField]="form1.name" />
+
+    @for (error of form1.name().errors(); track error) {
+      <p class="text-error"> {{ error.message }} </p>
+    }
+  </fieldset>
+
+  <fieldset class="fieldset">
+    <legend id="dsUsername" class="fieldset-legend">Username</legend>
+    <input aria-labelledby="dsUsername" type="text" class="input" placeholder="Seu username" [formField]="form1.username" />
+
+    @for (error of form1.username().errors(); track error) {
+      <p class="text-error"> {{ error.message }} </p>
+    }
+  </fieldset>
+
+  <fieldset class="fieldset">
+    <legend id="dsEmail" class="fieldset-legend">Email</legend>
+    <input aria-labelledby="dsEmail" type="text" class="input" placeholder="Seu email" [formField]="form1.email" />
+
+      @for (error of form1.email().errors(); track error) {
+      <p class="text-error"> {{ error.message }} </p>
+    }
+  </fieldset>
+
+  <button class="btn btn-primary" type="submit">Salvar</button>
+</form>
+

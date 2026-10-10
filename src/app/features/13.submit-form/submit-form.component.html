@@ -1,25 +1,28 @@
-<fieldset class="fieldset">
-  <legend id="username" class="fieldset-legend">Username</legend>
-  <input type="text" class="input" [formField]="form1.username" aria-labelledby="username" />
+<form [formRoot]="form1">
+  <fieldset class="fieldset">
+    <legend id="username" class="fieldset-legend">Username</legend>
+    <input type="text" class="input" [formField]="form1.username" aria-labelledby="username" />
 
-  @for (error of form1.username().errors(); track error) {
-    <span class="text-error"> {{ error.message }} </span>
-  }
-
-  @if(form1.username().pending()) {
-    <p> Verificando..... </p>
-  }
-
-  @if(errorMessage()){
-    <div class="text-error"> {{ errorMessage() }} </div>
-  }
-
-  <button type="button" (click)="save()" [disabled]="form1().submitting()" class="btn btn-primary">
-    @if(form1().submitting()) {
-      Trabalhando...
-    } @else {
-      Enviar
+    @for (error of form1.username().errors(); track error) {
+      <span class="text-error"> {{ error.message }} </span>
     }
-  </button>
 
-</fieldset>
+    @if(form1.username().pending()) {
+      <p> Verificando..... </p>
+    }
+
+    @if(errorMessage()){
+      <div class="text-error"> {{ errorMessage() }} </div>
+    }
+
+    <button type="submit" [disabled]="form1().submitting()" class="btn btn-primary">
+      @if(form1().submitting()) {
+        Trabalhando...
+      } @else {
+        Enviar
+      }
+    </button>
+
+  </fieldset>
+</form>
+
