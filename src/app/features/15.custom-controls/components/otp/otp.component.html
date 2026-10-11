@@ -1,0 +1,13 @@
+<label class="otp">
+  @for (item of numberQuantityArray(); track $index) {
+  <span></span>
+  }
+
+  <input type="text"
+    #input
+    [(ngModel)]="value"
+    autocomplete="one-time-code"
+    inputmode="numeric"
+    [maxlength]="resolveMaxLength()"
+    (blur)="touch.emit()" />
+</label>

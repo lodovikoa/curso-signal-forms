@@ -1,0 +1,8 @@
+<app-otp [formField]="form1.otp" />
+
+<div>
+  <button class="btn btn-primary" (click)="reset()">Reset</button>
+  <button class="btn btn-primary" (click)="focus()">Focus</button>
+</div>
+
+<div>{{ form1().value() | json }}</div>
